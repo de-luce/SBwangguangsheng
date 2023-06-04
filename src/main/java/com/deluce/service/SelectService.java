@@ -12,8 +12,8 @@ public class SelectService implements SelectServiceImpl {
     SqlSession sqlSession = MybatisUtils.getSqlSession();
     SelectMapper mapper = sqlSession.getMapper(SelectMapper.class);
 
-    public void SelectEM(){
-        List<SelectEM> result = mapper.selectEM();
+    public void SelectEM(String username) {
+        List<SelectEM> result = mapper.selectEM(username);
         for (SelectEM em : result) {
             System.out.println(em.getAssetSN() + ", " + em.getAssetName() + ", " + em.getLastClosedEM() + ", " + em.getNumberOfEMs());
         }

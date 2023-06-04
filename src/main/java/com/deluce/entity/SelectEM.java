@@ -9,5 +9,6 @@ public class SelectEM {
     private String assetSN;
     private String assetName;
     private Date lastClosedEM;
+    private String department;
     private int numberOfEMs;
 }
