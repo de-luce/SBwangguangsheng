@@ -1,5 +1,5 @@
 package com.deluce.service.impl;
 
 public interface SelectServiceImpl {
-    void SelectEM(String username);
+    String SelectEM(String username);
 }

@@ -30,6 +30,7 @@
     <mappers>
         <mapper resource="mapper/LoginMapper.xml"/>
         <mapper resource="mapper/SelectMapper.xml"/>
+        <mapper resource="mapper/SendEMRequestMapper.xml"/>
         <package name="mapper/"/>
     </mappers>
 

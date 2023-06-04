@@ -1,20 +1,16 @@
 import com.deluce.entity.SelectEM;
-import com.deluce.mapper.SelectMapper;
+import com.deluce.mapper.SendEMRequestMapper;
 import com.deluce.utils.MybatisUtils;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
-
-import java.util.List;
 
 public class MyTest {
     @Test
     public void test() {
         SqlSession sqlSession = MybatisUtils.getSqlSession();
-        SelectMapper mapper = sqlSession.getMapper(SelectMapper.class);
-        List<SelectEM> selectEMList = mapper.selectEM("josefa");
-        for (SelectEM selectEM : selectEMList) {
-            System.out.println(selectEM.getAssetSN() + ", " + selectEM.getAssetName() + ", " + selectEM.getLastClosedEM() + ", " + selectEM.getNumberOfEMs());
-        }
+        SendEMRequestMapper mapper = sqlSession.getMapper(SendEMRequestMapper.class);
+        SelectEM selectByUsername = mapper.selectByUsername("05/04/0002");
+        System.out.println(selectByUsername.getAssetSN()+"      "+selectByUsername.getAssetName()+"         "+selectByUsername.getDepartment());
 
     }
 
