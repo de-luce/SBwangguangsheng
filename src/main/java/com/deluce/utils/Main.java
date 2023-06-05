@@ -14,7 +14,6 @@ public class Main {
         SendEMRequestService sendEMRequestService = new SendEMRequestService();
         Scanner scanner = new Scanner(System.in);
         boolean loggedIn = false;
-
         while (!loggedIn) {
             System.out.print("Enter username: ");
             String inputUsername = scanner.nextLine();
@@ -30,18 +29,24 @@ public class Main {
                     //进入责任方界面
                     System.out.println("Available Assents");
                     selectService.SelectEM(inputUsername);
-                    System.out.println("选择发送紧急维护请求");
-                    String sendEMRequest = scanner.nextLine();
-                    sendEMRequestService.selectByUsername(inputUsername,sendEMRequest);
+                    System.out.println("选择发送紧急维护请求SN");
+                    String AssetSN = scanner.nextLine();
+                    sendEMRequestService.selectByUsername(inputUsername, AssetSN);
                     System.out.println("Request Report");
-                    System.out.println("Priority:\n"+"1   General\n"+"2   High\n"+"3   Very High\n");
-                    System.out.println("请选择Priority等级");
-                    String priority = scanner.nextLine();
+                    System.out.println("""
+                            Priority:
+                            1   General
+                            2   High
+                            3   Very High
+                            """);
+                    System.out.println("请选择Priority等级ID");
+                    String priorityID = scanner.nextLine();
                     System.out.println("请输入Description of Emergency\n");
                     String DescriptionEmergency = scanner.nextLine();
                     System.out.println("请输入Other Considerations\n");
                     String OtherConsiderations = scanner.nextLine();
-
+                    System.out.println("提交" + priorityID + "    " + DescriptionEmergency + "    " + OtherConsiderations);
+                    sendEMRequestService.insertReport(DescriptionEmergency, OtherConsiderations, priorityID, AssetSN);
                 }
                 loggedIn = true;
             } else {

@@ -17,9 +17,10 @@ public class SendEMRequestService implements SendEMRequestServiceImpl {
     }
 
     @Override
-    public int insertReport() {
-        int requestReport = mapper.insertReport();
-
-        return requestReport;
+    public void insertReport(String DescriptionEmergency, String OtherConsiderations, String priorityID, String AssetSN) {
+        mapper.insertReport(DescriptionEmergency, OtherConsiderations, priorityID, AssetSN);
+        sqlSession.commit();
     }
+
+
 }
