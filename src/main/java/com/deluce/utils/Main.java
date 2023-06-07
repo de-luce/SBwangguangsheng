@@ -47,6 +47,20 @@ public class Main {
                     String OtherConsiderations = scanner.nextLine();
                     System.out.println("提交" + priorityID + "    " + DescriptionEmergency + "    " + OtherConsiderations);
                     sendEMRequestService.insertReport(DescriptionEmergency, OtherConsiderations, priorityID, AssetSN);
+                } else {
+                    //进入经历界面
+                    System.out.println("Maintenance manager:");
+                    System.out.println("1   Emergency Maintenance Management");
+                    System.out.println("2   Inventory Management");
+                    System.out.println("请输入操作");
+                    int operateID = scanner.nextInt();
+                    if (operateID == 1) {
+                        //Emergency Maintenance Management功能
+                        continue;
+                    } else {
+                        //Inventory Management功能
+                        continue;
+                    }
                 }
                 loggedIn = true;
             } else {
